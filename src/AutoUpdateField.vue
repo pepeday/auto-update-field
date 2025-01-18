@@ -41,6 +41,13 @@ props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) =>
 		() => values.value[watchField],
 		async (newValue, oldValue) => {
 			console.log(`Watch triggered for ${watchField}:`, { newValue, oldValue });
+			
+			// Skip if this is the initial value or no real change
+			if (newValue === oldValue || oldValue === undefined) {
+				console.log('Skipping update - no user change detected');
+				return;
+			}
+
 			console.log('template:', template);
 			console.log('values:', JSON.stringify(values.value));
 			
@@ -59,8 +66,7 @@ props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) =>
 					console.error('Failed to resolve template:', error);
 				}
 			}
-		},
-		{ immediate: true }
+		}
 	);
 });
 
