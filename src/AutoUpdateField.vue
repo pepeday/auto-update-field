@@ -48,7 +48,7 @@ props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) =>
 			// 3. New value is undefined/null/empty
 			if (oldValue === undefined || 
 				newValue === oldValue || 
-				!newValue) {  // This covers undefined, null, empty string
+				!newValue) {
 				console.log('Skipping update - initial load, no change, or cleared value');
 				return;
 			}
@@ -67,7 +67,8 @@ props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) =>
 				console.log('Resolved value:', resolvedValue);
 				emit("setFieldValue", { field: updateField, value: resolvedValue });
 			} catch (error) {
-				console.error('Failed to resolve template:', error);
+				console.log('Skipping update - template resolution failed:', error);
+				return;
 			}
 		},
 		{ 

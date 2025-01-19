@@ -89,8 +89,8 @@ export const resolveValue = async (
 
     return resolvedTemplate;
   } catch (error) {
-    console.warn(`Error resolving template "${template}":`, error);
-    return template;
+    // Re-throw the error instead of returning the template
+    throw error;
   }
 
   async function resolveTemplates() {
@@ -122,6 +122,11 @@ export const resolveValue = async (
       // Simple value
       else {
         resolvedValue = value;
+      }
+
+      // If any resolved value is null/undefined, return null
+      if (resolvedValue === null || resolvedValue === undefined) {
+        throw new Error(`Template resolution failed - ${match} resolved to null/undefined`);
       }
 
       resolvedTemplate = resolvedTemplate.replace(
