@@ -51,7 +51,6 @@ props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) =>
 			}
 
 			if (oldValue === undefined || !newValue) {
-				console.log('Skipping update - initial load or cleared value');
 				return;
 			}
 
@@ -64,13 +63,12 @@ props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) =>
 					props.collection,
 					relationsStore
 				);
-				console.log('Resolved value:', resolvedValue);
 
 				if (resolvedValue !== values.value[updateField]) {
 					emit("setFieldValue", { field: updateField, value: resolvedValue });
 				}
 			} catch (error) {
-				console.log('Template resolution failed:', error);
+				console.warn('Template resolution failed:', error);
 			} finally {
 				isUpdating.value = false;
 			}

@@ -71,11 +71,9 @@ export const resolveValue = async (
   try {
     // First resolve all mustache templates
     const resolvedTemplate = await resolveTemplates();
-    console.log('Mustache template resolved to:', resolvedTemplate);
     
     // Then evaluate any date expressions
     if (resolvedTemplate.match(/\d{4}-\d{2}-\d{2}\([+-]?\d+[a-z]+\)/)) {
-      console.log('Found date adjustment within:', resolvedTemplate);
       
       // Replace each date adjustment while keeping surrounding text
       return resolvedTemplate.replace(
