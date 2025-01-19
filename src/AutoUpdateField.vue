@@ -1,9 +1,3 @@
-<template>
-	<div>
-		<v-button></v-button>
-	</div>
-</template>
-
 <script setup lang="ts">
 import { watch, inject, ref, computed } from "vue";
 import { resolveValue } from "./composables/resolveFields";
