@@ -6,7 +6,7 @@ export default defineInterface({
 	id: 'auto-update-field',
 	name: 'Auto Update Field',
 	description: 'Adds a field that automatically updates based on the value of another field.',
-	icon: 'automation',
+	icon: 'flash_auto',
 	component: InterfaceComponent,
 	hideLabel: true,
 	hideLoader: true,
