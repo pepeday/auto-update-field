@@ -1,5 +1,6 @@
 import { render, renderFn, get } from 'micromustache';
 import type { Api } from '@directus/types';
+import { adjustDate } from '@directus/utils';
 
 const relationCache = new Map<string, any>();
 
@@ -32,8 +33,33 @@ async function fetchRelation(api: Api, collection: string, field: string, id: st
   }
 }
 
+type DateAdjustment = {
+  date: string;      // yyyy-mm-dd
+  adjustment: string; // +1y, -2mo, etc.
+};
+
 /**
- * Resolves a template string using current values and fetches relations if needed
+ * Safely parses a date adjustment string like: "2024-01-20(+1y)"
+ */
+function parseDateAdjustment(input: string): DateAdjustment | null {
+  const match = input.match(/^(\d{4}-\d{2}-\d{2})\(([+-]?\d+[a-z]+)\)$/);
+  if (!match) return null;
+
+  const [, date, adjustment] = match;
+  return { date, adjustment };
+}
+
+/**
+ * Safely executes a date adjustment
+ */
+function executeDateAdjustment(operation: DateAdjustment): string {
+  const date = new Date(operation.date);
+  const result = adjustDate(date, operation.adjustment);
+  return result ? result.toISOString().split('T')[0] : operation.date;
+}
+
+/**
+ * Resolves a template string using current values and evaluates any date-fns expressions
  */
 export const resolveValue = async (
   api: Api,
@@ -43,6 +69,28 @@ export const resolveValue = async (
   relationsStore: any
 ): Promise<string> => {
   try {
+    // First resolve all mustache templates
+    const resolvedTemplate = await resolveTemplates();
+    console.log('Mustache template resolved to:', resolvedTemplate);
+    
+    // Then evaluate any date expressions
+    if (resolvedTemplate.match(/\d{4}-\d{2}-\d{2}\([+-]?\d+[a-z]+\)/)) {
+      console.log('Found date adjustment, evaluating...');
+      const dateOperation = parseDateAdjustment(resolvedTemplate);
+      if (dateOperation) {
+        console.log('Parsed operation:', dateOperation);
+        return executeDateAdjustment(dateOperation);
+      }
+      console.warn('Failed to parse date adjustment:', resolvedTemplate);
+    }
+
+    return resolvedTemplate;
+  } catch (error) {
+    console.warn(`Error resolving template "${template}":`, error);
+    return template;
+  }
+
+  async function resolveTemplates() {
     if (!template.includes('{{')) {
       return template;
     }
@@ -82,8 +130,5 @@ export const resolveValue = async (
     }
 
     return resolvedTemplate;
-  } catch (error) {
-    console.warn(`Error resolving template "${template}":`, error);
-    return template;
   }
 };

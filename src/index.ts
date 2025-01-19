@@ -38,19 +38,7 @@ export default defineInterface({
 									},
 								},
 							},
-							{
-								field: 'value',
-								name: 'Value Template',
-								type: 'string',
-								meta: {
-									width: 'half',
-									interface: 'system-display-template',
-									options: {
-										collectionName: context.collection,
-										placeholder: 'Enter static value or {{ field }}',
-									},
-								},
-							},
+
 							{
 								field: 'updateField',
 								name: 'Field to update',
@@ -64,6 +52,21 @@ export default defineInterface({
 									},
 								},
 							},
+
+							{
+								field: 'value',
+								name: 'Value Template',
+								type: 'string',
+								meta: {
+									width: 'full',
+									interface: 'system-display-template',
+									options: {
+										collectionName: context.collection,
+										placeholder: 'Enter static value or {{ field }}',
+									},
+								},
+							},
+
 						],
 					},
 				},

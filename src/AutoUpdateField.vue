@@ -43,7 +43,7 @@ props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) =>
 			console.log(`Watch triggered for ${watchField}:`, { newValue, oldValue });
 			
 			// Skip if this is the initial value or no real change
-			if (newValue === oldValue || oldValue === undefined) {
+			if (newValue === oldValue || newValue === undefined) {
 				console.log('Skipping update - no user change detected');
 				return;
 			}
