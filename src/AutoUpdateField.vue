@@ -33,7 +33,6 @@ const isUpdating = ref(false);
 
 // Watch only the specific watchFields
 props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) => {
-	console.log('Setting up watcher for:', watchField);
 	
 	watch(
 		// Watch ONLY the specific watchField
