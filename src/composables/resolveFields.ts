@@ -75,13 +75,16 @@ export const resolveValue = async (
     
     // Then evaluate any date expressions
     if (resolvedTemplate.match(/\d{4}-\d{2}-\d{2}\([+-]?\d+[a-z]+\)/)) {
-      console.log('Found date adjustment, evaluating...');
-      const dateOperation = parseDateAdjustment(resolvedTemplate);
-      if (dateOperation) {
-        console.log('Parsed operation:', dateOperation);
-        return executeDateAdjustment(dateOperation);
-      }
-      console.warn('Failed to parse date adjustment:', resolvedTemplate);
+      console.log('Found date adjustment within:', resolvedTemplate);
+      
+      // Replace each date adjustment while keeping surrounding text
+      return resolvedTemplate.replace(
+        /(\d{4}-\d{2}-\d{2})\(([+-]?\d+[a-z]+)\)/g,
+        (match, date, adjustment) => {
+          const operation = { date, adjustment };
+          return executeDateAdjustment(operation);
+        }
+      );
     }
 
     return resolvedTemplate;
