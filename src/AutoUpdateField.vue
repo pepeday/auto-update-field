@@ -42,30 +42,37 @@ props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) =>
 		async (newValue, oldValue) => {
 			console.log(`Watch triggered for ${watchField}:`, { newValue, oldValue });
 			
-			// Skip if this is the initial value or no real change
-			if (newValue === oldValue || newValue === undefined) {
-				console.log('Skipping update - no user change detected');
+			// Skip if:
+			// 1. This is the initial load (oldValue is undefined)
+			// 2. No real change in value
+			// 3. New value is undefined/null/empty
+			if (oldValue === undefined || 
+				newValue === oldValue || 
+				!newValue) {  // This covers undefined, null, empty string
+				console.log('Skipping update - initial load, no change, or cleared value');
 				return;
 			}
 
 			console.log('template:', template);
 			console.log('values:', JSON.stringify(values.value));
 			
-			if (newValue !== undefined) {
-				try {
-					const resolvedValue = await resolveValue(
-						api,
-						template,
-						values.value,
-						props.collection,
-						relationsStore
-					);
-					console.log('Resolved value:', resolvedValue);
-					emit("setFieldValue", { field: updateField, value: resolvedValue });
-				} catch (error) {
-					console.error('Failed to resolve template:', error);
-				}
+			try {
+				const resolvedValue = await resolveValue(
+					api,
+					template,
+					values.value,
+					props.collection,
+					relationsStore
+				);
+				console.log('Resolved value:', resolvedValue);
+				emit("setFieldValue", { field: updateField, value: resolvedValue });
+			} catch (error) {
+				console.error('Failed to resolve template:', error);
 			}
+		},
+		{ 
+			// Don't fire immediately on setup
+			immediate: false
 		}
 	);
 });
