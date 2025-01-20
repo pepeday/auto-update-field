@@ -1,4 +1,4 @@
-import { render, renderFn, get } from 'micromustache';
+import { get } from 'micromustache';
 import type { Api } from '@directus/types';
 import { adjustDate } from '@directus/utils';
 
@@ -39,15 +39,7 @@ type DateAdjustment = {
 };
 
 /**
- * Safely parses a date adjustment string like: "2024-01-20(+1y)"
- */
-function parseDateAdjustment(input: string): DateAdjustment | null {
-  const match = input.match(/^(\d{4}-\d{2}-\d{2})\(([+-]?\d+[a-z]+)\)$/);
-  if (!match) return null;
 
-  const [, date, adjustment] = match;
-  return { date, adjustment };
-}
 
 /**
  * Safely executes a date adjustment
