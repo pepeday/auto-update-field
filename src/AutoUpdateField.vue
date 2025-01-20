@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { watch, inject, ref, computed } from "vue";
+import { watch, inject, ref } from "vue";
 import { resolveValue } from "./composables/resolveFields";
 import { useApi, useStores } from '@directus/extensions-sdk';
-import { get } from 'lodash';
 
 const { useRelationsStore } = useStores();
 const relationsStore = useRelationsStore();
