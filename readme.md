@@ -25,6 +25,7 @@ This Directus extension monitors a field in the item page and automatically upda
 1. Navigate to the collection where you want to use the auto-update functionality.
 2. Configure the fields and logic for auto-updating by setting the Watch Field, Update Field, and Value Template.
 3. The extension will automatically apply the defined logic whenever an Update Field is changed.
+4. **Warning** if you place this interface in a collapsed, or hidden group, it will not work.
 
 ## Files
 
