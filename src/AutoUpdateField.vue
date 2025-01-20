@@ -29,6 +29,19 @@ const values = inject('values', ref<Record<string, any>>({}));
 
 // Flag to prevent recursive updates
 const isUpdating = ref(false);
+// Track if initial values have been set
+const initialValuesSet = ref(false);
+
+// Watch for initial values load
+watch(
+	values,
+	(newValues) => {
+		if (!initialValuesSet.value && Object.keys(newValues).length > 0) {
+			initialValuesSet.value = true;
+		}
+	},
+	{ deep: true, immediate: true }
+);
 
 // Watch only the specific watchFields
 props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) => {
@@ -37,13 +50,13 @@ props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) =>
 		// Watch ONLY the specific watchField
 		() => values.value[watchField],
 		async (newValue, oldValue) => {
-			// Skip if we're in the middle of an update
-			if (isUpdating.value) {
+			// Skip if we're in the middle of an update or if initial values haven't been set
+			if (isUpdating.value || !initialValuesSet.value) {
 				return;
 			}
 
-			// Only skip if oldValue is undefined (initial state) and newValue is null/undefined
-			if (oldValue === undefined && newValue == null) {
+			// Only skip during initial undefined state
+			if (oldValue === undefined && !initialValuesSet.value) {
 				return;
 			}
 
