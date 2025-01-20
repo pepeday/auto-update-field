@@ -42,7 +42,8 @@ props.autoUpdateFields.forEach(({ watchField, updateField, value: template }) =>
 				return;
 			}
 
-			if (oldValue === undefined || !newValue) {
+			// Only skip if oldValue is undefined (initial state) and newValue is null/undefined
+			if (oldValue === undefined && newValue == null) {
 				return;
 			}
 
