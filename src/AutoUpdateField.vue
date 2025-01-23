@@ -87,7 +87,7 @@ const setupFieldWatchers = () => {
 					allValues: values.value
 				});
 
-				if (isUpdating.value || !values.value) {
+				if (isUpdating.value || !values.value || props.loading) {
 					return;
 				}
 
