@@ -1,0 +1,11 @@
+[AutoUpdateField] Value changed: {field: 'inspection_type_id', value: undefined, loading: true, primaryKey: '+'}
+index.js:1 [AutoUpdateField] Value changed: {field: 'date_completed', value: undefined, loading: true, primaryKey: '+'}
+index.js:1 [AutoUpdateField] Loading changed: {from: false, to: true, primaryKey: '+', hasValues: false, values: {…}}
+index.js:1 [AutoUpdateField] Value changed: {field: 'inspection_type_id', value: 2, loading: false, primaryKey: '20'}
+index.js:1 [AutoUpdateField] Value changed: {field: 'date_completed', value: '2024-12-31', loading: false, primaryKey: '20'}
+index.js:1 [AutoUpdateField] Loading changed: {from: true, to: false, primaryKey: '20', hasValues: true, values: {…}}
+index.js:1 [AutoUpdateField] Loading complete
+index.js:1 Primary Key after loading 20
+index.js:1 Initial Values after loading {}
+index.js:1 [AutoUpdateField] Setting up field watchers
+index.js:1 [AutoUpdateField] Watchers already set up, skipping

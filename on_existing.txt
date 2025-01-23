@@ -1,0 +1,149 @@
+[AutoUpdateField] Value changed: {field: 'inspection_type_id', value: undefined, loading: false, primaryKey: '20'}
+index.js:1 [AutoUpdateField] Value changed: {field: 'date_completed', value: undefined, loading: false, primaryKey: '20'}
+vue.runtime.esm-bundler-CQgeFuBy.js:5  The specified value "nextval('inspections_id_seq'::regclass)" cannot be parsed, or is out of range.
+Me @ vue.runtime.esm-bundler-CQgeFuBy.js:5
+wo @ vue.runtime.esm-bundler-CQgeFuBy.js:5
+B @ runtime-core.esm-bundler-BIDPbtkS.js:14
+O @ runtime-core.esm-bundler-BIDPbtkS.js:14
+b @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+Yt @ runtime-core.esm-bundler-BIDPbtkS.js:14
+V @ runtime-core.esm-bundler-BIDPbtkS.js:14
+G @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+R @ runtime-core.esm-bundler-BIDPbtkS.js:14
+O @ runtime-core.esm-bundler-BIDPbtkS.js:14
+b @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+F @ runtime-core.esm-bundler-BIDPbtkS.js:14
+run @ runtime-core.esm-bundler-BIDPbtkS.js:9
+ie @ runtime-core.esm-bundler-BIDPbtkS.js:14
+J @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+F @ runtime-core.esm-bundler-BIDPbtkS.js:14
+run @ runtime-core.esm-bundler-BIDPbtkS.js:9
+ie @ runtime-core.esm-bundler-BIDPbtkS.js:14
+J @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+R @ runtime-core.esm-bundler-BIDPbtkS.js:14
+G @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+F @ runtime-core.esm-bundler-BIDPbtkS.js:14
+run @ runtime-core.esm-bundler-BIDPbtkS.js:9
+runIfDirty @ runtime-core.esm-bundler-BIDPbtkS.js:9
+Kt @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Wr @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Promise.then
+Kr @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Is @ runtime-core.esm-bundler-BIDPbtkS.js:13
+H.S.scheduler @ runtime-core.esm-bundler-BIDPbtkS.js:14
+trigger @ runtime-core.esm-bundler-BIDPbtkS.js:9
+Ts @ runtime-core.esm-bundler-BIDPbtkS.js:9
+notify @ runtime-core.esm-bundler-BIDPbtkS.js:9
+trigger @ runtime-core.esm-bundler-BIDPbtkS.js:9
+set value @ runtime-core.esm-bundler-BIDPbtkS.js:9
+x @ index.B31URco5.entry.js:2087
+S @ index.B31URco5.entry.js:2087
+fi @ index.B31URco5.entry.js:2092
+await in fi
+(anonymous) @ index.B31URco5.entry.js:2092
+i @ index.B31URco5.entry.js:666
+(anonymous) @ index.B31URco5.entry.js:666
+zLe @ index.B31URco5.entry.js:666
+(anonymous) @ index.B31URco5.entry.js:666
+vue.runtime.esm-bundler-CQgeFuBy.js:5  The specified value "nextval('inspections_id_seq'::regclass)" cannot be parsed, or is out of range.
+Pe @ vue.runtime.esm-bundler-CQgeFuBy.js:5
+wo @ vue.runtime.esm-bundler-CQgeFuBy.js:5
+B @ runtime-core.esm-bundler-BIDPbtkS.js:14
+O @ runtime-core.esm-bundler-BIDPbtkS.js:14
+b @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+Yt @ runtime-core.esm-bundler-BIDPbtkS.js:14
+V @ runtime-core.esm-bundler-BIDPbtkS.js:14
+G @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+R @ runtime-core.esm-bundler-BIDPbtkS.js:14
+O @ runtime-core.esm-bundler-BIDPbtkS.js:14
+b @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+F @ runtime-core.esm-bundler-BIDPbtkS.js:14
+run @ runtime-core.esm-bundler-BIDPbtkS.js:9
+ie @ runtime-core.esm-bundler-BIDPbtkS.js:14
+J @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+F @ runtime-core.esm-bundler-BIDPbtkS.js:14
+run @ runtime-core.esm-bundler-BIDPbtkS.js:9
+ie @ runtime-core.esm-bundler-BIDPbtkS.js:14
+J @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+R @ runtime-core.esm-bundler-BIDPbtkS.js:14
+G @ runtime-core.esm-bundler-BIDPbtkS.js:14
+w @ runtime-core.esm-bundler-BIDPbtkS.js:14
+F @ runtime-core.esm-bundler-BIDPbtkS.js:14
+run @ runtime-core.esm-bundler-BIDPbtkS.js:9
+runIfDirty @ runtime-core.esm-bundler-BIDPbtkS.js:9
+Kt @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Wr @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Promise.then
+Kr @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Is @ runtime-core.esm-bundler-BIDPbtkS.js:13
+H.S.scheduler @ runtime-core.esm-bundler-BIDPbtkS.js:14
+trigger @ runtime-core.esm-bundler-BIDPbtkS.js:9
+Ts @ runtime-core.esm-bundler-BIDPbtkS.js:9
+notify @ runtime-core.esm-bundler-BIDPbtkS.js:9
+trigger @ runtime-core.esm-bundler-BIDPbtkS.js:9
+set value @ runtime-core.esm-bundler-BIDPbtkS.js:9
+x @ index.B31URco5.entry.js:2087
+S @ index.B31URco5.entry.js:2087
+fi @ index.B31URco5.entry.js:2092
+await in fi
+(anonymous) @ index.B31URco5.entry.js:2092
+i @ index.B31URco5.entry.js:666
+(anonymous) @ index.B31URco5.entry.js:666
+zLe @ index.B31URco5.entry.js:666
+(anonymous) @ index.B31URco5.entry.js:666
+index.js:1 [AutoUpdateField] Loading changed: {from: false, to: true, primaryKey: '+', hasValues: false, values: {…}}
+index.js:1  [AutoUpdateField] Template resolution failed: Error: Template resolution failed - {{inspection_type_id.form_definition}} resolved to null/undefined
+    at index.js:1:218428
+    at ci (index.js:1:218585)
+    at g.autoUpdateFields.forEach.watch.immediate (index.js:1:220748)
+    at Kt (runtime-core.esm-bundler-BIDPbtkS.js:13:1385)
+    at Ve (runtime-core.esm-bundler-BIDPbtkS.js:13:1455)
+    at Gt.o.call (runtime-core.esm-bundler-BIDPbtkS.js:14:30855)
+    at d (runtime-core.esm-bundler-BIDPbtkS.js:9:16989)
+    at Kt (runtime-core.esm-bundler-BIDPbtkS.js:13:1393)
+    at Wr (runtime-core.esm-bundler-BIDPbtkS.js:13:3142)
+g.autoUpdateFields.forEach.watch.immediate @ index.js:1
+await in g.autoUpdateFields.forEach.watch.immediate
+Kt @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Ve @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Gt.o.call @ runtime-core.esm-bundler-BIDPbtkS.js:14
+d @ runtime-core.esm-bundler-BIDPbtkS.js:9
+Kt @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Wr @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Promise.then
+Kr @ runtime-core.esm-bundler-BIDPbtkS.js:13
+Is @ runtime-core.esm-bundler-BIDPbtkS.js:13
+H.S.scheduler @ runtime-core.esm-bundler-BIDPbtkS.js:14
+trigger @ runtime-core.esm-bundler-BIDPbtkS.js:9
+Ts @ runtime-core.esm-bundler-BIDPbtkS.js:9
+notify @ runtime-core.esm-bundler-BIDPbtkS.js:9
+trigger @ runtime-core.esm-bundler-BIDPbtkS.js:9
+set value @ runtime-core.esm-bundler-BIDPbtkS.js:9
+x @ index.B31URco5.entry.js:2087
+S @ index.B31URco5.entry.js:2087
+fi @ index.B31URco5.entry.js:2092
+await in fi
+(anonymous) @ index.B31URco5.entry.js:2092
+i @ index.B31URco5.entry.js:666
+(anonymous) @ index.B31URco5.entry.js:666
+zLe @ index.B31URco5.entry.js:666
+(anonymous) @ index.B31URco5.entry.js:666
+index.js:1 [AutoUpdateField] Value changed: {field: 'inspection_type_id', value: 2, loading: true, primaryKey: '+'}
+index.js:1 [AutoUpdateField] Value changed: {field: 'date_completed', value: '2024-12-31', loading: true, primaryKey: '+'}
+index.js:1 [AutoUpdateField] Loading changed: {from: true, to: false, primaryKey: '20', hasValues: true, values: {…}}
+index.js:1 [AutoUpdateField] Loading complete
+index.js:1 Primary Key after loading 20
+index.js:1 Initial Values after loading {}
+index.js:1 [AutoUpdateField] Setting up field watchers
+index.js:1 [AutoUpdateField] Watchers already set up, skipping

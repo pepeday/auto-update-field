@@ -6,7 +6,7 @@ import { useApi, useStores } from '@directus/extensions-sdk';
 const { useRelationsStore } = useStores();
 const relationsStore = useRelationsStore();
 const api = useApi();
-console.log('Version 17');
+console.log('Version 20');
 const emit = defineEmits<{
 	(e: 'setFieldValue', payload: { field: string; value: string }): void
 }>();
@@ -35,6 +35,7 @@ const values = inject('values', ref<Record<string, any>>({}));
 const isUpdating = ref(false);
 const isInitialized = ref(false);
 const hasWatchers = ref(false);
+const isReinitializing = ref(false);
 
 console.log('Primary Key', props.primaryKey);
 console.log('Initial Values', props.initialValues);
@@ -47,8 +48,21 @@ watch(
 			from: oldValue,
 			to: newValue,
 			primaryKey: props.primaryKey,
-			hasValues: Object.keys(values.value || {}).length > 0
+			hasValues: Object.keys(values.value || {}).length > 0,
+			values: values.value
 		});
+
+		// Detect start of reinitialization
+		if (newValue === true && props.primaryKey === '+') {
+			console.log('[AutoUpdateField] Detected start of save and stay transition');
+			isReinitializing.value = true;
+		}
+		
+		// Detect end of reinitialization
+		if (newValue === false && isReinitializing.value) {
+			console.log('[AutoUpdateField] Save and stay transition complete');
+			isReinitializing.value = false;
+		}
 	},
 	{ immediate: true }
 );
@@ -104,8 +118,15 @@ const setupFieldWatchers = () => {
 					field: watchField,
 					value: newValue,
 					loading: props.loading,
-					primaryKey: props.primaryKey
+					primaryKey: props.primaryKey,
+					isReinitializing: isReinitializing.value
 				});
+
+				// Skip updates during reinitialization phase
+				if (isReinitializing.value) {
+					console.log('[AutoUpdateField] Skipping update during reinitialization');
+					return;
+				}
 
 				if (isUpdating.value || !values.value || props.loading) {
 					return;
