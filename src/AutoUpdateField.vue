@@ -6,7 +6,7 @@ import { useApi, useStores } from '@directus/extensions-sdk';
 const { useRelationsStore } = useStores();
 const relationsStore = useRelationsStore();
 const api = useApi();
-console.log('Version 14');
+console.log('Version 17');
 const emit = defineEmits<{
 	(e: 'setFieldValue', payload: { field: string; value: string }): void
 }>();
@@ -34,9 +34,24 @@ const props = withDefaults(defineProps<Props>(), {
 const values = inject('values', ref<Record<string, any>>({}));
 const isUpdating = ref(false);
 const isInitialized = ref(false);
+const hasWatchers = ref(false);
 
 console.log('Primary Key', props.primaryKey);
 console.log('Initial Values', props.initialValues);
+
+// Add loading state watcher at the top level
+watch(
+	() => props.loading,
+	(newValue, oldValue) => {
+		console.log('[AutoUpdateField] Loading changed:', {
+			from: oldValue,
+			to: newValue,
+			primaryKey: props.primaryKey,
+			hasValues: Object.keys(values.value || {}).length > 0
+		});
+	},
+	{ immediate: true }
+);
 
 // Move setup into onMounted
 onMounted(() => {
@@ -62,6 +77,11 @@ onMounted(() => {
 });
 
 const setupFieldWatchers = () => {
+	if (hasWatchers.value) {
+		console.log('[AutoUpdateField] Watchers already set up, skipping');
+		return;
+	}
+
 	if (!props.autoUpdateFields || !Array.isArray(props.autoUpdateFields)) {
 		console.warn('[AutoUpdateField] Invalid autoUpdateFields configuration');
 		return;
@@ -76,15 +96,15 @@ const setupFieldWatchers = () => {
 			return;
 		}
 
+		// In the watcher callback, only log value changes
 		watch(
 			() => values.value?.[watchField],
 			async (newValue) => {
-				if (!isInitialized.value) return;
-
-				console.log('[AutoUpdateField] Watcher triggered:', {
+				console.log('[AutoUpdateField] Value changed:', {
 					field: watchField,
 					value: newValue,
-					allValues: values.value
+					loading: props.loading,
+					primaryKey: props.primaryKey
 				});
 
 				if (isUpdating.value || !values.value || props.loading) {
@@ -140,6 +160,8 @@ const setupFieldWatchers = () => {
 			console.warn('[AutoUpdateField] Error during manual watcher trigger:', error);
 		});
 	}
+
+	hasWatchers.value = true;
 };
 </script>
 
